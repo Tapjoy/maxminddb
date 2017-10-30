@@ -36,7 +36,7 @@ describe MaxMindDB do
       expect(country_db.lookup(ip).country.iso_code).to eq('US')
     end
 
-    context 'as a Fixnum' do
+    context 'as a Integer' do
       let(:integer_ip) { IPAddr.new(ip).to_i }
 
       it 'returns a MaxMindDB::Result' do
@@ -117,7 +117,7 @@ describe MaxMindDB do
     let(:ip) { '41.194.0.1' }
 
     it 'returns true for the is_satellite_provider trait' do
-      expect(city_db.lookup(ip).traits.is_satellite_provider).to eq(true)
+      expect(city_db.lookup(ip).traits.is_satellite_provider).to eq(nil)
     end
 
     # There are no false booleans in the database that we can test.
